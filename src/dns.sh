@@ -7,3 +7,5 @@ LOG_PATH="out/dns.log"
 
 echo "[DNS] Resolviendo $TARGET_URL con $DNS_SERVER" | tee "$LOG_PATH"
 dig @"$DNS_SERVER" "$TARGET_URL" +short | tee -a "$LOG_PATH"
+
+awk '/^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$/ {print $0}' out/dns.log | sort | uniq > out/dns_clean.log
