@@ -8,3 +8,4 @@ run:
 
 test:
 	bats tests/
+
