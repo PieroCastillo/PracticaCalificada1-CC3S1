@@ -1,4 +1,6 @@
-# Variables
+# Variables de configuración
+# Usadas por los targets
+
 SRC=src/logs.sh
 DIST=dist
 BIN=$(DIST)/logs.sh
