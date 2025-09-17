@@ -48,3 +48,14 @@ Cada sprint se documenta en:
 
 Incluyen comandos ejecutados, salidas relevantes y decisiones tomadas.
 
+Se valida que `dns.sh` retorne al menos una IP. Se define entonces ´test/dns.bats´
+
+## Targets del Makefile
+
+| Target | Descripción |
+|--------|-------------|
+| `help` | Muestra los targets disponibles y una breve explicación de cada uno. |
+| `tools` | Verifica que las utilidades necesarias (`dig`, `bats`) estén instaladas en el sistema. |
+| `run` | Ejecuta el script principal de Alumno2 (`src/dns.sh`) y genera los archivos de salida en `out/`. |
+| `test` | Ejecuta los tests automatizados con Bats ubicados en la carpeta `tests/`. |
+| `clean` | Elimina los archivos generados en la carpeta `out/` para dejar el entorno limpio. |
