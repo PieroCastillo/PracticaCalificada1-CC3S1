@@ -1,0 +1,10 @@
+[Unit]
+Description=Servicio de recolección y procesamiento de logs de red
+
+[Service]
+Type=simple
+ExecStart=/bin/bash /dist/logs.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
