@@ -31,12 +31,18 @@ Se organizaron los directorios principales de la práctica de la siguiente maner
 Se realizó un commit inicial en la rama `rama/alumno2` con el mensaje:
 
 ```
-feat: estructura mínima del proyecto (DNS)
+Se define la estructura mínima
 ```
 
 ---
 
 ## Evidencias
+
+Se instala la función ´tree´ (´sudo apt install tree´)
+
+Se ejecuta ´tree -L 2´
+
+![Raiz del Proyecto](./img/tree-L2.png)
 
 ### Comandos ejecutados
 ```bash
@@ -45,14 +51,13 @@ mkdir docs src tests out
 touch docs/bitacora-sprint-1.md docs/bitacora-sprint-2.md docs/bitacora-sprint-3.md
 touch docs/contrato-salidas.md src/dns.sh tests/dns.bats Makefile
 git add .
-git commit -m "Estructura mínima del proyecto"
+git commit -m "Se define la estructura mínima"
 git push -u origin rama/alumno2
 ```
 
 ### Salida de `git log --oneline`
-```
-91dbdc3 feat: estructura mínima del proyecto (DNS)
-```
+
+![Confirmamos los commits realizados](./img/gitlog--oneline.png)
 
 ---
 
