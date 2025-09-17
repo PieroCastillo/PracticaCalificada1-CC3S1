@@ -38,9 +38,9 @@ Se define la estructura mínima
 
 ## Evidencias
 
-Se instala la función ´tree´ (´sudo apt install tree´)
+Se instala la función `tree` (`sudo apt install tree`)
 
-Se ejecuta ´tree -L 2´
+Se ejecuta `tree -L 2`
 
 ![Raiz del Proyecto](./img/tree-L2.png)
 
