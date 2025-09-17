@@ -10,16 +10,23 @@ IPS_PATH="out/dns_ips.log"
 UNIQUE_PATH="out/dns_unique.log"
 CNAME_PATH="out/dns_cname.log"
 
+# Asegurar carpeta de salida
+mkdir -p out
+
 # Consulta DNS
 echo "Consultando DNS de $TARGET_URL con $DNS_SERVER" | tee "$LOG_PATH"
 dig @"$DNS_SERVER" "$TARGET_URL" A +noall +answer | tee -a "$LOG_PATH"
 dig @"$DNS_SERVER" "$TARGET_URL" CNAME +noall +answer | tee -a "$LOG_PATH"
 
 # Procesamiento
-awk '/^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$/ {print $1}' "$LOG_PATH" > "$IPS_PATH"
-sort "$IPS_PATH" | uniq > "$UNIQUE_PATH"
-grep "CNAME" "$LOG_PATH" > "$CNAME_PATH" || true
+# Extraer IPs (columna 5 de los registros tipo A)
+awk '{ if ($4 == "A") print $5 }' "$LOG_PATH" > "$IPS_PATH"
 
+# IPs únicas
+sort "$IPS_PATH" | uniq > "$UNIQUE_PATH"
+
+# Extraer CNAME (columna 5 de los registros tipo CNAME)
+awk '{ if ($4 == "CNAME") print $5 }' "$LOG_PATH" > "$CNAME_PATH"
 
 echo "Archivos generados:"
 echo " - $LOG_PATH"

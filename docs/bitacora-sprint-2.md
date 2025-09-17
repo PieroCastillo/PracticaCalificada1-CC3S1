@@ -39,31 +39,21 @@ Se utilizaron los siguientes comandos dentro del script:
 ## Evidencias
 
 ### Consulta DNS
-Ejemplo de salida parcial en `out/dns.log`:
-```
-[Registro A]
-example.com.     21599   IN   A    93.184.216.34
 
-[Registro CNAME]
-www.example.com.  3599   IN   CNAME   example.com.
-```
+![Consulta DNS](./img/bashsrcdns.sh.png)
 
 ### Procesamiento
 - `dns_ips.log`:
-```
-93.184.216.34
-93.184.216.34
-```
+
+![dns_ips.log](./img/dns_ips.png)
 
 - `dns_unique.log`:
-```
-93.184.216.34
-```
+
+![dns_unique.log](./img/dns_unique.png)
 
 - `dns_cname.log`:
-```
-www.example.com.  3599   IN   CNAME   example.com.
-```
+
+![dns_cname.log](./img/dns_cname.png)
 
 ---
 
@@ -89,14 +79,11 @@ Se creó el archivo `tests/dns.bats` con pruebas básicas:
 }
 ```
 
-Ejecución de pruebas:
-```
- ✓ dns.sh genera dns.log
- ✓ dns.sh genera al menos una IP
- ✓ dns.sh genera archivo de IPs únicas
+Se instala `bats` con `sudo apt install bats`
 
-3 tests, 0 failures
-```
+Ejecución de pruebas:
+
+![Pruebas con bats](./img/batstests.png)
 
 ---
 
